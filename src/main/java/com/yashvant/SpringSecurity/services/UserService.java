@@ -10,4 +10,7 @@ import java.util.List;
 public class UserService {
     List<User> list = new ArrayList<>();
 
+    public UserService(List<User> list) {
+        this.list = list;
+    }
 }
