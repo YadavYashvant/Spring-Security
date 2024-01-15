@@ -11,6 +11,10 @@ public class UserService {
     List<User> list = new ArrayList<>();
 
     public UserService(List<User> list) {
-        this.list = list;
+        list.add(new User("abc", "abc", "abc@gmail.com"));
+    }
+
+    public List<User> getAllUsers(){
+        return this.list;
     }
 }
