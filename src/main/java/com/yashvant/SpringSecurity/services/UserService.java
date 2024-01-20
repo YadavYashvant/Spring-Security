@@ -10,6 +10,7 @@ import java.util.List;
 public class UserService {
     List<User> list = new ArrayList<>();
 
+    // Constructor for UserService
     public UserService() {
         list.add(new User("abc", "abc", "abc@gmail.com"));
         list.add(new User("xyz", "abcxyz", "xyz@gmail.com"));
