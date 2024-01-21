@@ -1,19 +1,18 @@
 package com.yashvant.SpringSecurity.models;
-public class User {
-    String username;
-    String password;
-    String emailId;
 
-    public User(){
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
-    }
+import java.util.Collection;
+import java.util.Collections;
 
-    public User(String username, String password, String emailId) {
-        this.username = username;
-        this.password = password;
-        this.emailId = emailId;
-    }
+public class User implements UserDetails {
+    // Your user entity fields, including username and password
 
+    private String username;
+    private String password;
+
+    @Override
     public String getUsername() {
         return username;
     }
@@ -22,6 +21,7 @@ public class User {
         this.username = username;
     }
 
+    @Override
     public String getPassword() {
         return password;
     }
@@ -30,11 +30,16 @@ public class User {
         this.password = password;
     }
 
-    public String getEmailId() {
-        return emailId;
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        // Return the list of authorities/roles for the user
+        return Collections.emptyList();
     }
+
+    // Implement other UserDetails methods
 }
